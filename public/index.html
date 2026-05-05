@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentor-Mentee Form | Mohan Babu University</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/en/4/4b/Mohan_Babu_University_Logo%2C_Tirupati%2C_Andhra_Pradesh%2C_India.png"
+      alt="Mohan Babu University Logo"
+      class="logo"
+    />
+    <div class="header-text">
+      <h1>Mohan Babu University</h1>
+      <h2>Mentor &ndash; Mentee Form</h2>
+      <p>Tirupati, Andhra Pradesh</p>
+    </div>
+  </div>
+
+  <form id="mentorForm" enctype="multipart/form-data">
+
+    <!-- Photo -->
+    <div class="section">
+      <h3>&#128247; Student Photo</h3>
+      <div class="photo-wrap">
+        <img id="photoPreview" src="https://via.placeholder.com/130x160?text=Photo" alt="Photo Preview" />
+        <label class="btn-upload" for="photo">&#128247; Choose Photo</label>
+        <input type="file" id="photo" name="photo" accept="image/*" onchange="previewPhoto(event)" />
+      </div>
+    </div>
+
+    <!-- 1. Student Profile -->
+    <div class="section">
+      <h3>1. Student Profile</h3>
+      <div class="grid">
+        <div class="field"><label>Name of the Student <span>*</span></label><input type="text" name="student_name" required /></div>
+        <div class="field"><label>Roll Number <span>*</span></label><input type="text" name="roll_number" required /></div>
+        <div class="field"><label>Year of Admission <span>*</span></label><input type="number" name="year_of_admission" min="2000" max="2099" placeholder="e.g. 2023" required /></div>
+        <div class="field">
+          <label>Branch <span>*</span></label>
+          <select name="branch" required>
+            <option value="">-- Select Branch --</option>
+            <option>CSE</option>
+            <option>CSE (AI &amp; ML)</option>
+            <option>CSE (Data Science)</option>
+            <option>CSE (Cyber Security)</option>
+            <option>ECE</option>
+            <option>EEE</option>
+            <option>MECH</option>
+            <option>CIVIL</option>
+            <option>IT</option>
+            <option>MBA</option>
+            <option>MCA</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Date of Birth <span>*</span></label><input type="date" name="date_of_birth" required /></div>
+        <div class="field"><label>Aadhaar Number <span>*</span></label><input type="text" name="student_aadhaar" maxlength="12" pattern="\d{12}" placeholder="12-digit number" required /></div>
+        <div class="field"><label>APPAR Number</label><input type="text" name="student_appar" /></div>
+      </div>
+    </div>
+
+    <!-- 2. Parents -->
+    <div class="section">
+      <h3>2. Parent&rsquo;s Name</h3>
+      <div class="grid">
+        <div class="field"><label>Father&rsquo;s Name <span>*</span></label><input type="text" name="father_name" required /></div>
+        <div class="field"><label>Mother&rsquo;s Name <span>*</span></label><input type="text" name="mother_name" required /></div>
+      </div>
+    </div>
+
+    <!-- 3. Communication Address -->
+    <div class="section">
+      <h3>3. Communication Address</h3>
+      <div class="field"><label>Line 1</label><input type="text" name="comm_address_line1" /></div>
+      <div class="field"><label>Line 2</label><input type="text" name="comm_address_line2" /></div>
+      <div class="field"><label>Line 3</label><input type="text" name="comm_address_line3" /></div>
+      <div class="field"><label>Line 4 (City / PIN)</label><input type="text" name="comm_address_line4" /></div>
+    </div>
+
+    <!-- 4. Permanent Address -->
+    <div class="section">
+      <h3>4. Permanent Address <small>(if different from above)</small></h3>
+      <div class="field"><label>Line 1</label><input type="text" name="perm_address_line1" /></div>
+      <div class="field"><label>Line 2</label><input type="text" name="perm_address_line2" /></div>
+      <div class="field"><label>Line 3</label><input type="text" name="perm_address_line3" /></div>
+      <div class="field"><label>Line 4 (City / PIN)</label><input type="text" name="perm_address_line4" /></div>
+    </div>
+
+    <!-- 5. Contact -->
+    <div class="section">
+      <h3>5. Contact Information</h3>
+      <div class="grid">
+        <div class="field"><label>Father Mobile</label><input type="tel" name="father_mobile" maxlength="10" placeholder="10-digit" /></div>
+        <div class="field"><label>Father Email</label><input type="email" name="father_email" /></div>
+        <div class="field"><label>Mother Mobile</label><input type="tel" name="mother_mobile" maxlength="10" /></div>
+        <div class="field"><label>Mother Email</label><input type="email" name="mother_email" /></div>
+        <div class="field"><label>Student Mobile <span>*</span></label><input type="tel" name="student_mobile" maxlength="10" required /></div>
+        <div class="field"><label>Student Email <span>*</span></label><input type="email" name="student_email" required /></div>
+      </div>
+    </div>
+
+    <!-- 6. Academic Background -->
+    <div class="section">
+      <h3>6. Academic Background</h3>
+      <div class="grid">
+        <div class="field"><label>School (up to X Class)</label><input type="text" name="school_upto_x" /></div>
+        <div class="field"><label>Intermediate / Diploma College</label><input type="text" name="intermediate_college" /></div>
+        <div class="field"><label>Year of Completion</label><input type="number" name="year_of_completion" min="2000" max="2099" /></div>
+        <div class="field"><label>% Marks in Inter / Diploma</label><input type="number" name="percentage_inter" min="0" max="100" step="0.01" /></div>
+        <div class="field"><label>EAMCET / ECET Rank</label><input type="text" name="eamcet_rank" /></div>
+        <div class="field">
+          <label>Category of Admission</label>
+          <select name="category_admission">
+            <option value="">-- Select --</option>
+            <option>Counselling</option>
+            <option>NRI</option>
+            <option>Management</option>
+            <option>SPOT</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Residing -->
+    <div class="section">
+      <h3>7. Presently Residing</h3>
+      <div class="radio-group">
+        <label><input type="radio" name="residing_type" value="Hostel (Private)" /> Hostel (Private)</label>
+        <label><input type="radio" name="residing_type" value="Hostel (College)" /> Hostel (College)</label>
+        <label><input type="radio" name="residing_type" value="With Parents" /> With Parents</label>
+        <label><input type="radio" name="residing_type" value="With Local Guardian" /> With Local Guardian</label>
+        <label><input type="radio" name="residing_type" value="Room with Friends" /> Room with Friends</label>
+      </div>
+      <div class="field"><label>If Private &mdash; Hostel Address</label><input type="text" name="hostel_address" /></div>
+    </div>
+
+    <!-- 8. Identification -->
+    <div class="section">
+      <h3>8. Identification Marks</h3>
+      <div class="grid">
+        <div class="field"><label>Mark 1</label><input type="text" name="id_mark_1" /></div>
+        <div class="field"><label>Mark 2</label><input type="text" name="id_mark_2" /></div>
+      </div>
+    </div>
+
+    <!-- 9. Hobbies -->
+    <div class="section">
+      <h3>9. Hobbies</h3>
+      <div class="field"><textarea name="hobbies" rows="3" placeholder="Describe hobbies..."></textarea></div>
+    </div>
+
+    <!-- 10. Health -->
+    <div class="section">
+      <h3>10. Health Issues (if any)</h3>
+      <div class="field"><input type="text" name="health_issues" placeholder="None / describe..." /></div>
+    </div>
+
+    <!-- 11. Transport -->
+    <div class="section">
+      <h3>11. Transport</h3>
+      <div class="radio-group">
+        <label><input type="radio" name="transport_mode" value="College Bus" /> College Bus</label>
+        <label><input type="radio" name="transport_mode" value="APSRTC" /> A.P.S.R.T.C.</label>
+        <label><input type="radio" name="transport_mode" value="Two Wheeler" /> Two Wheeler</label>
+        <label><input type="radio" name="transport_mode" value="Car" /> Car</label>
+      </div>
+    </div>
+
+    <!-- 12. Parent Background -->
+    <div class="section">
+      <h3>12. Background of Parents</h3>
+      <h4 style="margin:8px 0 10px;color:#3949ab;">Father</h4>
+      <div class="grid">
+        <div class="field">
+          <label>Occupation</label>
+          <select name="father_occupation">
+            <option value="">-- Select --</option>
+            <option>Agriculture</option><option>Employee</option>
+            <option>Business</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Educational Qualification</label><input type="text" name="father_edu_qual" /></div>
+        <div class="field"><label>Income per Annum (&#8377;)</label><input type="number" name="father_income" min="0" /></div>
+      </div>
+      <h4 style="margin:16px 0 10px;color:#3949ab;">Mother</h4>
+      <div class="grid">
+        <div class="field">
+          <label>Occupation</label>
+          <select name="mother_occupation">
+            <option value="">-- Select --</option>
+            <option>House Wife</option><option>Employee</option>
+            <option>Business</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Educational Qualification</label><input type="text" name="mother_edu_qual" /></div>
+        <div class="field"><label>Income per Annum (&#8377;)</label><input type="number" name="mother_income" min="0" /></div>
+      </div>
+    </div>
+
+    <!-- 13. Career -->
+    <div class="section">
+      <h3>13. Career Development &amp; Job Prospects</h3>
+      <div class="grid">
+        <div class="field"><label>Computer Courses</label><input type="text" name="computer_courses" /></div>
+        <div class="field"><label>Preparing for (GRE / TOEFL / GATE / CAT / MAT etc.)</label><input type="text" name="competitive_exams" /></div>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="submit-section">
+      <button type="submit" id="submitBtn">&#128229; Submit &amp; Download Excel</button>
+      <p id="statusMsg"></p>
+    </div>
+
+  </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

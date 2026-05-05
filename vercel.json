@@ -1,1 +1,23 @@
-# Vercel configuration
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/fill-form.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/fill-form",
+      "dest": "api/fill-form.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "public/$1"
+    }
+  ]
+}

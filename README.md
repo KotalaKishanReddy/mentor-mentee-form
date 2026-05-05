@@ -1,45 +1,41 @@
-# Mentor-Mentee Form
+# Mentor-Mentee Form — Mohan Babu University
 
-A web app to fill the Mohan Babu University Mentor-Mentee form and download a filled Excel sheet.
+A fully serverless web app that fills the official Mentor-Mentee Excel template and returns it for download.
 
 ## Stack
-- **Backend**: FastAPI + openpyxl (Python)
-- **Frontend**: Static HTML/CSS/JS
+| Layer | Technology |
+|-------|------------|
+| Frontend | Static HTML + CSS + JS (in `public/`) |
+| Backend | Vercel Python Serverless Function (`api/fill-form.py`) |
+| Excel | `openpyxl` — fills template, preserves all formatting |
 
-## Setup
+## Project Structure
+```
+mentor-mentee-form/
+  api/
+    fill-form.py          ← Vercel Python serverless function
+  public/
+    index.html            ← Form UI (logo + photo + all 13 sections)
+    style.css
+    script.js
+  backend/
+    templates/
+      Consolidated Mentor-Mentee form.xlsx   ← original template
+  vercel.json             ← Vercel routing config
+  requirements.txt        ← openpyxl
+```
 
-### 1. Clone the repo
+## Deploy to Vercel
+
+1. Go to [vercel.com](https://vercel.com) → **Add New Project**
+2. Import this GitHub repo: `KotalaKishanReddy/mentor-mentee-form`
+3. Leave all settings default → click **Deploy**
+4. Done — your live URL will be `https://mentor-mentee-form.vercel.app`
+
+## Local Development
+
 ```bash
-git clone https://github.com/KotalaKishanReddy/mentor-mentee-form.git
-cd mentor-mentee-form
+npm i -g vercel
+vercel dev
 ```
-
-### 2. Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Place the Excel template
-Copy `Consolidated-Mentor-Mentee-form.xlsx` to:
-```
-backend/templates/Consolidated-Mentor-Mentee-form.xlsx
-```
-
-### 4. Run the backend
-```bash
-cd backend
-uvicorn main:app --reload
-```
-
-### 5. Open the frontend
-Open `frontend/index.html` in your browser, or serve it:
-```bash
-cd frontend
-python -m http.server 8080
-```
-Then go to `http://localhost:8080`
-
-## Deployment
-- **Frontend**: Deploy `frontend/` folder to Vercel
-- **Backend**: Deploy `backend/` to Render, Railway, or Fly.io
-- Update `API_URL` in `frontend/script.js` to your backend URL
+Then open `http://localhost:3000`
