@@ -2,12 +2,10 @@ __pycache__/
 *.pyc
 *.pyo
 .env
-.venv/
+.venv
 venv/
 env/
 backend/generated/*
 !backend/generated/.gitkeep
-*.xlsx
-!backend/templates/Consolidated-Mentor-Mentee-form.xlsx
 .DS_Store
 node_modules/
